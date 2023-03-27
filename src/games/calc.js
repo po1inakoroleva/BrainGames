@@ -19,7 +19,7 @@ const roundCalcGame = () => {
   const expression = `${randomNum1} ${randomOperator} ${randomNum2}`;
 
   const calculator = (num1, num2) => {
-    let expressionResult = 0;
+    let expressionResult;
     if (randomOperator === '+') {
       expressionResult = num1 + num2;
     } else if (randomOperator === '-') {
