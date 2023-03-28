@@ -7,3 +7,4 @@
 ### Asciinemas 'The Brain Games':
 [![asciicast](https://asciinema.org/a/v9SJ5KBpdJaDfnL8gJJ6oaeDE.svg)](https://asciinema.org/a/v9SJ5KBpdJaDfnL8gJJ6oaeDE)
 [![asciicast](https://asciinema.org/a/fNyyVd6655O73kjQYEqrwuY1C.svg)](https://asciinema.org/a/fNyyVd6655O73kjQYEqrwuY1C)
+[![asciicast](https://asciinema.org/a/ZF3S1lX6nP1peAWDxg65hvnOS.svg)](https://asciinema.org/a/ZF3S1lX6nP1peAWDxg65hvnOS)
