@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import gameEngine from '../index.js';
 
 const rulesOfTheGcdGame = 'Find the greatest common divisor of given numbers.';
@@ -24,9 +25,17 @@ const roundGcdGame = () => {
   const firstNumDivisors = getDivisors(firstNum);
   const secondNumDivisors = getDivisors(secondNum);
 
-  const getGreatestDivisor = (divisors1, divisors2) => {};
+  const getGreatestDivisor = (divisors1, divisors2) => {
+    const commonDivisors = _.intersection(divisors1, divisors2);
+    const maxDivisor = Math.max(...commonDivisors);
+
+    return maxDivisor;
+  };
+
+  const greatestDivisor = String(getGreatestDivisor(firstNumDivisors, secondNumDivisors));
 
   result.push(question);
+  result.push(greatestDivisor);
   return result;
 };
 
