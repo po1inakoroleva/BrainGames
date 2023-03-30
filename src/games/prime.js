@@ -8,6 +8,10 @@ const roundPrimeGame = () => {
   const question = geterateRandomInRange(1, 100);
 
   const isPrime = (num) => {
+    if (num === 1) {
+      return 'no';
+    }
+
     for (let divisor = 2; divisor <= num / 2; divisor += 1) {
       if (num % divisor === 0) {
         return 'no';
