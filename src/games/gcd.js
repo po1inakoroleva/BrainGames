@@ -14,7 +14,7 @@ const roundGcdGame = () => {
 
   const getDivisors = (num) => {
     const divisors = [];
-    for (let divisor = 1; divisor <= num / 2; divisor += 1) {
+    for (let divisor = 1; divisor <= num; divisor += 1) {
       if (num % divisor === 0) {
         divisors.push(divisor);
       }
