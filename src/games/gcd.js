@@ -6,9 +6,9 @@ const rulesOfTheGcdGame = 'Find the greatest common divisor of given numbers.';
 const roundGcdGame = () => {
   const result = [];
 
-  const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-  const firstNum = getRandomNum(0, 100);
-  const secondNum = getRandomNum(0, 100);
+  const geterateRandomInRange = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+  const firstNum = geterateRandomInRange(0, 100);
+  const secondNum = geterateRandomInRange(0, 100);
 
   const question = `${firstNum} ${secondNum}`;
 
@@ -27,15 +27,15 @@ const roundGcdGame = () => {
 
   const getGreatestDivisor = (divisors1, divisors2) => {
     const commonDivisors = _.intersection(divisors1, divisors2);
-    const maxDivisor = Math.max(...commonDivisors);
+    const greatestCommonDivisor = Math.max(...commonDivisors);
 
-    return maxDivisor;
+    return greatestCommonDivisor;
   };
 
-  const greatestDivisor = String(getGreatestDivisor(firstNumDivisors, secondNumDivisors));
+  const correctAnswer = String(getGreatestDivisor(firstNumDivisors, secondNumDivisors));
 
   result.push(question);
-  result.push(greatestDivisor);
+  result.push(correctAnswer);
   return result;
 };
 
