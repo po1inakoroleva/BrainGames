@@ -6,12 +6,12 @@ const roundEvenGame = () => {
   const result = [];
 
   const geterateRandomInRange = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-  const randonNum = geterateRandomInRange(0, 100);
+  const question = geterateRandomInRange(0, 100);
 
-  const isEven = randonNum % 2 === 0;
+  const isEven = question % 2 === 0;
   const correctAnswer = isEven === true ? 'yes' : 'no';
 
-  result.push(randonNum);
+  result.push(question);
   result.push(correctAnswer);
   return result;
 };

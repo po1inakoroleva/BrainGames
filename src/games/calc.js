@@ -7,32 +7,32 @@ const roundCalcGame = () => {
 
   const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
-  const getRandomOperator = (coll) => {
-    const getRandomIndex = Math.floor(Math.random() * coll.length);
-    return coll[getRandomIndex];
+  const getRandomOperator = (operatorsArr) => {
+    const getRandomIndex = Math.floor(Math.random() * operatorsArr.length);
+    return operatorsArr[getRandomIndex];
   };
 
-  const randomNum1 = getRandomNum(0, 100);
-  const randomNum2 = getRandomNum(0, 100);
-  const randomOperator = getRandomOperator(['+', '-', '*']);
+  const firstNum = getRandomNum(0, 100);
+  const secondNum = getRandomNum(0, 100);
+  const expressionOperator = getRandomOperator(['+', '-', '*']);
 
-  const expression = `${randomNum1} ${randomOperator} ${randomNum2}`;
+  const question = `${firstNum} ${expressionOperator} ${secondNum}`;
 
   const calculator = (num1, num2) => {
     let expressionResult;
-    if (randomOperator === '+') {
+    if (expressionOperator === '+') {
       expressionResult = num1 + num2;
-    } else if (randomOperator === '-') {
+    } else if (expressionOperator === '-') {
       expressionResult = num1 - num2;
-    } else if (randomOperator === '*') {
+    } else if (expressionOperator === '*') {
       expressionResult = num1 * num2;
     }
     return expressionResult;
   };
 
-  const correctAnswer = String(calculator(randomNum1, randomNum2));
+  const correctAnswer = String(calculator(firstNum, secondNum));
 
-  result.push(expression);
+  result.push(question);
   result.push(correctAnswer);
   return result;
 };
