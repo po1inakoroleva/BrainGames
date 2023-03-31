@@ -5,8 +5,8 @@ const rulesOfTheEvenGame = 'Answer "yes" if the number is even, otherwise answer
 const roundEvenGame = () => {
   const result = [];
 
-  const geterateRandomInRange = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-  const question = geterateRandomInRange(0, 100);
+  const generateRandomInRange = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+  const question = generateRandomInRange(0, 100);
 
   const isEven = question % 2 === 0;
   const correctAnswer = isEven === true ? 'yes' : 'no';
