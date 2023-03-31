@@ -7,8 +7,8 @@ const roundGcdGame = () => {
   const result = [];
 
   const generateRandomInRange = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-  const firstNum = generateRandomInRange(0, 100);
-  const secondNum = generateRandomInRange(0, 100);
+  const firstNum = generateRandomInRange(1, 100);
+  const secondNum = generateRandomInRange(1, 100);
 
   const question = `${firstNum} ${secondNum}`;
 
