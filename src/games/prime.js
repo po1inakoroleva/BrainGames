@@ -4,8 +4,8 @@ const rulesOfThePrimeGame = 'Answer "yes" if given number is prime. Otherwise an
 
 const roundPrimeGame = () => {
   const result = [];
-  const geterateRandomInRange = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-  const question = geterateRandomInRange(1, 100);
+  const generateRandomInRange = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+  const question = generateRandomInRange(1, 100);
 
   const isPrime = (num) => {
     if (num === 1) {

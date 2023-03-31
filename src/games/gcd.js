@@ -6,9 +6,9 @@ const rulesOfTheGcdGame = 'Find the greatest common divisor of given numbers.';
 const roundGcdGame = () => {
   const result = [];
 
-  const geterateRandomInRange = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-  const firstNum = geterateRandomInRange(0, 100);
-  const secondNum = geterateRandomInRange(0, 100);
+  const generateRandomInRange = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+  const firstNum = generateRandomInRange(0, 100);
+  const secondNum = generateRandomInRange(0, 100);
 
   const question = `${firstNum} ${secondNum}`;
 
