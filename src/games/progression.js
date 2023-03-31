@@ -4,9 +4,9 @@ const rulesOfTheProgressionGame = 'What number is missing in the progression?';
 
 const roundProgressionGame = () => {
   const result = [];
-  const geterateRandomInRange = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-  const firstProgressionNum = geterateRandomInRange(0, 100);
-  const progressionStep = geterateRandomInRange(2, 10);
+  const generateRandomInRange = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+  const firstProgressionNum = generateRandomInRange(0, 100);
+  const progressionStep = generateRandomInRange(2, 10);
 
   const getProgression = (num) => {
     const res = [];
@@ -20,7 +20,7 @@ const roundProgressionGame = () => {
   };
 
   const progression = getProgression(firstProgressionNum);
-  const hiddenNumberIndex = geterateRandomInRange(0, 10);
+  const hiddenNumberIndex = generateRandomInRange(0, 10);
   const correctAnswer = String(progression[hiddenNumberIndex]);
   progression[hiddenNumberIndex] = '..';
 
