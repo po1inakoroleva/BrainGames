@@ -1,3 +1,4 @@
+import getRandomInRange from '../utils.js';
 import gameEngine from '../index.js';
 
 const rulesOfTheCalcGame = 'What is the result of the expression?';
@@ -5,15 +6,13 @@ const rulesOfTheCalcGame = 'What is the result of the expression?';
 const roundCalcGame = () => {
   const result = [];
 
-  const generateRandomInRange = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-
   const getRandomOperator = (operatorsArr) => {
     const getRandomIndex = Math.floor(Math.random() * operatorsArr.length);
     return operatorsArr[getRandomIndex];
   };
 
-  const firstNum = generateRandomInRange(0, 100);
-  const secondNum = generateRandomInRange(0, 100);
+  const firstNum = getRandomInRange(0, 100);
+  const secondNum = getRandomInRange(0, 100);
   const expressionOperator = getRandomOperator(['+', '-', '*']);
 
   const question = `${firstNum} ${expressionOperator} ${secondNum}`;
