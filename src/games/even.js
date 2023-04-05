@@ -1,3 +1,4 @@
+import getRandomInRange from '../utils.js';
 import gameEngine from '../index.js';
 
 const rulesOfTheEvenGame = 'Answer "yes" if the number is even, otherwise answer "no".';
@@ -5,8 +6,7 @@ const rulesOfTheEvenGame = 'Answer "yes" if the number is even, otherwise answer
 const roundEvenGame = () => {
   const result = [];
 
-  const generateRandomInRange = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-  const question = generateRandomInRange(0, 100);
+  const question = getRandomInRange(0, 100);
 
   const isEven = question % 2 === 0;
   const correctAnswer = isEven === true ? 'yes' : 'no';

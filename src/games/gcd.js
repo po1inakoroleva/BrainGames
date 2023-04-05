@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import getRandomInRange from '../utils.js';
 import gameEngine from '../index.js';
 
 const rulesOfTheGcdGame = 'Find the greatest common divisor of given numbers.';
@@ -6,9 +7,8 @@ const rulesOfTheGcdGame = 'Find the greatest common divisor of given numbers.';
 const roundGcdGame = () => {
   const result = [];
 
-  const generateRandomInRange = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-  const firstNum = generateRandomInRange(1, 100);
-  const secondNum = generateRandomInRange(1, 100);
+  const firstNum = getRandomInRange(1, 100);
+  const secondNum = getRandomInRange(1, 100);
 
   const question = `${firstNum} ${secondNum}`;
 
