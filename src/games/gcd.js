@@ -1,44 +1,26 @@
-import _ from 'lodash';
 import getRandomInRange from '../utils.js';
-import gameEngine from '../index.js';
+import runEngine from '../index.js';
 
-const rulesOfTheGcdGame = 'Find the greatest common divisor of given numbers.';
+const rules = 'Find the greatest common divisor of given numbers.';
 
-const roundGcdGame = () => {
-  const result = [];
+const getGcd = (num1, num2) => {
+  if (num2 === 0) {
+    return num1;
+  }
 
-  const firstNum = getRandomInRange(1, 100);
-  const secondNum = getRandomInRange(1, 100);
+  return getGcd(num2, num1 % num2);
+};
 
-  const question = `${firstNum} ${secondNum}`;
+const generateRound = () => {
+  const num1 = getRandomInRange(1, 100);
+  const num2 = getRandomInRange(1, 100);
 
-  const getDivisors = (num) => {
-    const divisors = [];
-    for (let divisor = 1; divisor <= num; divisor += 1) {
-      if (num % divisor === 0) {
-        divisors.push(divisor);
-      }
-    }
-    return divisors;
-  };
+  const question = `${num1} ${num2}`;
+  const correctAnswer = String(getGcd(num1, num2));
 
-  const firstNumDivisors = getDivisors(firstNum);
-  const secondNumDivisors = getDivisors(secondNum);
-
-  const getGreatestDivisor = (divisors1, divisors2) => {
-    const commonDivisors = _.intersection(divisors1, divisors2);
-    const greatestCommonDivisor = Math.max(...commonDivisors);
-
-    return greatestCommonDivisor;
-  };
-
-  const correctAnswer = String(getGreatestDivisor(firstNumDivisors, secondNumDivisors));
-
-  result.push(question);
-  result.push(correctAnswer);
-  return result;
+  return [question, correctAnswer];
 };
 
 export default () => {
-  gameEngine(rulesOfTheGcdGame, roundGcdGame);
+  runEngine(rules, generateRound);
 };

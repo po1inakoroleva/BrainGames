@@ -1,41 +1,37 @@
 import getRandomInRange from '../utils.js';
-import gameEngine from '../index.js';
+import runEngine from '../index.js';
 
-const rulesOfTheCalcGame = 'What is the result of the expression?';
+const rules = 'What is the result of the expression?';
 
-const roundCalcGame = () => {
-  const result = [];
+const getRandomOperator = () => {
+  const operators = ['+', '-', '*'];
+  return operators[getRandomInRange(0, operators.length - 1)];
+};
 
-  const getRandomOperator = (operatorsArr) => {
-    const getRandomIndex = Math.floor(Math.random() * operatorsArr.length);
-    return operatorsArr[getRandomIndex];
-  };
+const calculation = (num1, num2, operator) => {
+  switch (operator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    default:
+      throw new Error(`Operator ${operator} - is incorrect!`);
+  }
+};
 
-  const firstNum = getRandomInRange(0, 100);
-  const secondNum = getRandomInRange(0, 100);
-  const expressionOperator = getRandomOperator(['+', '-', '*']);
+const generateRound = () => {
+  const num1 = getRandomInRange(0, 100);
+  const num2 = getRandomInRange(0, 100);
+  const operator = getRandomOperator();
 
-  const question = `${firstNum} ${expressionOperator} ${secondNum}`;
+  const question = `${num1} ${operator} ${num2}`;
+  const correctAnswer = String(calculation(num1, num2, operator));
 
-  const calculator = (num1, num2) => {
-    let expressionResult;
-    if (expressionOperator === '+') {
-      expressionResult = num1 + num2;
-    } else if (expressionOperator === '-') {
-      expressionResult = num1 - num2;
-    } else if (expressionOperator === '*') {
-      expressionResult = num1 * num2;
-    }
-    return expressionResult;
-  };
-
-  const correctAnswer = String(calculator(firstNum, secondNum));
-
-  result.push(question);
-  result.push(correctAnswer);
-  return result;
+  return [question, correctAnswer];
 };
 
 export default () => {
-  gameEngine(rulesOfTheCalcGame, roundCalcGame);
+  runEngine(rules, generateRound);
 };

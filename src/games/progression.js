@@ -1,41 +1,35 @@
 import getRandomInRange from '../utils.js';
-import gameEngine from '../index.js';
+import runEngine from '../index.js';
 
-const rulesOfTheProgressionGame = 'What number is missing in the progression?';
+const rules = 'What number is missing in the progression?';
 
-const roundProgressionGame = () => {
-  const result = [];
+const getProgression = () => {
   const firstProgressionNum = getRandomInRange(0, 100);
   const progressionStep = getRandomInRange(2, 10);
+  const progressionLength = 10;
+  const result = [];
 
-  const getProgression = (num) => {
-    const res = [];
-    const progressionLength = 10;
-    let sequenceMember = num;
-    for (let i = 0; i < progressionLength; i += 1) {
-      sequenceMember += progressionStep;
-      res.push(sequenceMember);
-    }
-    return res;
-  };
+  let sequenceMember = firstProgressionNum;
+  for (let i = 0; i < progressionLength; i += 1) {
+    sequenceMember += progressionStep;
+    result.push(sequenceMember);
+  }
 
-  const progression = getProgression(firstProgressionNum);
-  const hiddenNumberIndex = getRandomInRange(0, 10);
-  const correctAnswer = String(progression[hiddenNumberIndex]);
-  progression[hiddenNumberIndex] = '..';
-
-  const getProgressionAsString = (arr) => {
-    const separator = ' ';
-    return arr.join(separator);
-  };
-
-  const question = getProgressionAsString(progression);
-
-  result.push(question);
-  result.push(correctAnswer);
   return result;
 };
 
+const generateRound = () => {
+  const progression = getProgression();
+
+  const hiddenNumberIndex = getRandomInRange(0, 9);
+  const correctAnswer = String(progression[hiddenNumberIndex]);
+
+  progression[hiddenNumberIndex] = '..';
+  const question = progression.join(' ');
+
+  return [question, correctAnswer];
+};
+
 export default () => {
-  gameEngine(rulesOfTheProgressionGame, roundProgressionGame);
+  runEngine(rules, generateRound);
 };
