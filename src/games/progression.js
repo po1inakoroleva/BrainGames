@@ -3,23 +3,21 @@ import runEngine from '../index.js';
 
 const rules = 'What number is missing in the progression?';
 
-const getProgression = () => {
-  const firstProgressionNum = getRandomInRange(0, 100);
-  const progressionStep = getRandomInRange(2, 10);
-  const progressionLength = 10;
-  const result = [];
+const generateProgression = (start, step, length) => {
+  const progression = [];
 
-  let sequenceMember = firstProgressionNum;
-  for (let i = 0; i < progressionLength; i += 1) {
-    sequenceMember += progressionStep;
-    result.push(sequenceMember);
+  for (let i = 0; i < length; i += 1) {
+    progression.push(start + step * i);
   }
 
-  return result;
+  return progression;
 };
 
 const generateRound = () => {
-  const progression = getProgression();
+  const firstProgressionNum = getRandomInRange(0, 100);
+  const progressionStep = getRandomInRange(2, 10);
+  const progressionLength = 10;
+  const progression = generateProgression(firstProgressionNum, progressionStep, progressionLength);
 
   const hiddenNumberIndex = getRandomInRange(0, 9);
   const correctAnswer = String(progression[hiddenNumberIndex]);

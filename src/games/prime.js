@@ -5,21 +5,21 @@ const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (num) => {
   if (num === 1) {
-    return 'no';
+    return false;
   }
 
   for (let divisor = 2; divisor <= num / 2; divisor += 1) {
     if (num % divisor === 0) {
-      return 'no';
+      return false;
     }
   }
 
-  return 'yes';
+  return true;
 };
 
 const generateRound = () => {
   const question = getRandomInRange(1, 100);
-  const correctAnswer = isPrime(question);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
   return [question, correctAnswer];
 };
